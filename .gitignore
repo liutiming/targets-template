@@ -18,3 +18,17 @@ stan/model.rds
 _targets
 report.html
 .Rproj.user
+
+replay*
+hs_err*
+.snakemake/
+_targets/
+logs/
+log_submit_py/
+data/
+*vcf
+*bcf
+cmq_log/
+*log
+*csv
+*rds
