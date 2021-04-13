@@ -2,18 +2,9 @@ library(targets)
 library(tarchetypes)
 source("R/functions.R")
 options(tidyverse.quiet = TRUE)
+options(clustermq.scheduler = "lsf", clustermq.template = "_targets_lsf.tmpl")
 
-# Uncomment below to use local multicore computing
-# when running tar_make_clustermq().
-options(clustermq.scheduler = "multicore")
-
-# Uncomment below to deploy targets to parallel jobs
-# on a Sun Grid Engine cluster when running tar_make_clustermq().
-# options(clustermq.scheduler = "sge", clustermq.template = "sge.tmpl")
-tar_option_set(packages = c("biglm", "rmarkdown", "tidyverse"))
-
-library(future)
-future::plan(future::multiprocess)
+tar_option_set(packages = c("rmarkdown", "tidyverse"))
 
 # Define the pipeline. A pipeline is just a list of targets.
 list(
