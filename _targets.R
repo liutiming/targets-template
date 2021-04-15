@@ -2,9 +2,13 @@ library(targets)
 library(tarchetypes)
 source("R/functions.R")
 options(tidyverse.quiet = TRUE)
+conflicted::conflict_prefer("filter", "dplyr")
+conflicted::conflict_prefer("select", "dplyr")
+conflicted::conflict_prefer("slice", "dplyr")
+conflicted::conflict_prefer("rename", "dplyr")
 options(clustermq.scheduler = "lsf", clustermq.template = "_targets_lsf.tmpl")
 
-tar_option_set(packages = c("rmarkdown", "tidyverse"))
+tar_option_set(packages = c("rmarkdown", "tidyverse", "conflicted"))
 
 # Define the pipeline. A pipeline is just a list of targets.
 list(
